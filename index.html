@@ -8,27 +8,36 @@
   <meta property="og:title" content="OKHIPU E.I.R.L." />
   <meta property="og:description" content="Ingeniería eléctrica, seguridad electrónica y redes." />
   <meta property="og:type" content="website" />
+
+  <!-- Tailwind Play CDN (oficial). Si tu red bloquea este dominio, verás el fallback CSS de abajo. -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
-              500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a'
-            }
+            brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' }
           }
         }
       }
     }
   </script>
+
+  <!-- Fallback mínimo por si Tailwind no carga (colores básicos y tipografía). -->
   <style>
-    /* Tipografía de sistema: rendimiento y cero dependencias */
-    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial; color:#0f172a; }
+    .fallback-btn{display:inline-block;padding:10px 14px;border-radius:12px;background:#2563eb;color:#fff;text-decoration:none;font-weight:600}
+    .fallback-card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:#fff}
+    .fallback-chip{display:inline-block;border:1px solid #e5e7eb;border-radius:999px;padding:6px 10px;font-size:12px;color:#475569}
   </style>
 </head>
 <body class="bg-white text-slate-900">
+  <noscript>
+    <div style="background:#fee2e2;color:#991b1b;padding:12px;text-align:center">Este sitio usa TailwindCSS para estilos. Activa JavaScript para ver el diseño completo.</div>
+  </noscript>
+
   <!-- Header -->
   <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -38,11 +47,12 @@
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="#servicios" class="hover:text-brand-700">Servicios</a>
+        <a href="#proyectos" class="hover:text-brand-700">Proyectos</a>
         <a href="#metodologia" class="hover:text-brand-700">Metodología</a>
         <a href="#diferenciadores" class="hover:text-brand-700">Diferenciadores</a>
         <a href="#contacto" class="hover:text-brand-700">Contacto</a>
       </nav>
-      <a href="#contacto" class="ml-4 inline-flex items-center rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-brand-700">Solicitar propuesta</a>
+      <a href="#contacto" class="ml-4 inline-flex items-center rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-brand-700 fallback-btn">Solicitar propuesta</a>
     </div>
   </header>
 
@@ -54,22 +64,18 @@
         <p class="mt-5 text-slate-600 md:text-lg">Desarrollamos soluciones en <strong>instalaciones eléctricas</strong>, <strong>seguridad electrónica (CCTV)</strong>, <strong>redes y fibra óptica</strong>, y <strong>detección y alarma de incendios</strong>. Entregables con <strong>APU S10/CAPECO</strong> y planos en AutoCAD.</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#servicios" class="inline-flex items-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium hover:border-slate-400">Ver servicios</a>
-          <a href="#contacto" class="inline-flex items-center rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-brand-700">Cotizar ahora</a>
+          <a href="#contacto" class="inline-flex items-center rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-brand-700 fallback-btn">Cotizar ahora</a>
         </div>
         <div class="mt-6 flex flex-wrap gap-3 text-xs text-slate-500">
-          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1">RUC: 20609694255</span>
-          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1">Cumplimiento normativo peruano</span>
-          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1">Facturación con IGV</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1 fallback-chip">RUC: 20609694255</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1 fallback-chip">Cumplimiento normativo peruano</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1 fallback-chip">Facturación con IGV</span>
         </div>
       </div>
       <div class="relative">
-        <div class="aspect-[4/3] rounded-2xl border border-slate-200 shadow-sm bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
-          <div class="text-center p-6">
-            <p class="text-sm uppercase tracking-widest text-brand-700 font-semibold">Portafolio</p>
-            <p class="mt-2 text-xl font-bold">Proyectos de clínicas, centros comerciales y espacios públicos</p>
-            <p class="mt-2 text-slate-600 text-sm">Levantamientos eléctricos, CCTV, fibra óptica, D&A contra incendios, mantenimiento integral.</p>
-          </div>
-        </div>
+        <!-- Imagen de portada: libre de uso (placeholder). Reemplaza por una propia cuando quieras. -->
+        <img src="https://picsum.photos/960/720?random=12" alt="Imagen corporativa de ingeniería" class="w-full h-full object-cover rounded-2xl border border-slate-200 shadow-sm" />
+        <div class="absolute inset-0 rounded-2xl ring-1 ring-black/5 pointer-events-none"></div>
       </div>
     </div>
   </section>
@@ -80,30 +86,62 @@
       <h2 class="text-2xl md:text-3xl font-bold">Servicios</h2>
       <p class="mt-2 text-slate-600">Alcances modulares, trazables y auditables.</p>
       <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="font-semibold">Instalaciones eléctricas</h3>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm fallback-card">
+          <h3 class="font-semibold flex items-center gap-2">
+            <!-- Ícono SVG inline -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12"></path><path d="M18 3v12"></path><path d="M2 9h20"></path><path d="M12 15v6"></path></svg>
+            Instalaciones eléctricas
+          </h3>
           <p class="mt-2 text-sm text-slate-600">Levantamiento, diagnóstico, tableros, pozo a tierra, balance de cargas, memoria y planos.</p>
         </div>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="font-semibold">CCTV y videovigilancia</h3>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm fallback-card">
+          <h3 class="font-semibold flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10"/></svg>
+            CCTV y videovigilancia
+          </h3>
           <p class="mt-2 text-sm text-slate-600">Diseño y tendido UTP/FO, racks, configuración de NVR/DVR, pruebas y puesta en marcha.</p>
         </div>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="font-semibold">Redes y fibra óptica</h3>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm fallback-card">
+          <h3 class="font-semibold flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M12 2v20"/></svg>
+            Redes y fibra óptica
+          </h3>
           <p class="mt-2 text-sm text-slate-600">Empalme, conectorización, certificación; SFPs para Cisco Catalyst 2960X y similares.</p>
         </div>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="font-semibold">Detección y alarma de incendios</h3>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm fallback-card">
+          <h3 class="font-semibold flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v8"/><path d="M8 12h8"/><circle cx="12" cy="12" r="9"/></svg>
+            Detección y alarma de incendios
+          </h3>
           <p class="mt-2 text-sm text-slate-600">Diseño e instalación de paneles, sensores, estaciones manuales y sirenas estrobo.</p>
         </div>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="font-semibold">Mantenimiento preventivo/correctivo</h3>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm fallback-card">
+          <h3 class="font-semibold flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v6"/><path d="M9 21h6"/></svg>
+            Mantenimiento preventivo/correctivo
+          </h3>
           <p class="mt-2 text-sm text-slate-600">Protocolos de inspección, limpieza, ajuste, pruebas funcionales y reporte técnico.</p>
         </div>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="font-semibold">Consultoría y planos (AutoCAD)</h3>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm fallback-card">
+          <h3 class="font-semibold flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/></svg>
+            Consultoría y planos (AutoCAD)
+          </h3>
           <p class="mt-2 text-sm text-slate-600">APU S10/CAPECO, cronogramas, entregables y dossier técnico para licitaciones.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos (galería simple) -->
+  <section id="proyectos">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">Proyectos</h2>
+      <p class="mt-2 text-slate-600">Muestras de trabajos (imágenes referenciales). Reemplázalas por fotos reales.</p>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <img class="rounded-2xl border border-slate-200 shadow-sm w-full h-56 object-cover" src="https://picsum.photos/600/400?random=21" alt="Proyecto 1" />
+        <img class="rounded-2xl border border-slate-200 shadow-sm w-full h-56 object-cover" src="https://picsum.photos/600/400?random=22" alt="Proyecto 2" />
+        <img class="rounded-2xl border border-slate-200 shadow-sm w-full h-56 object-cover" src="https://picsum.photos/600/400?random=23" alt="Proyecto 3" />
       </div>
     </div>
   </section>
@@ -163,13 +201,13 @@
             <li><strong>Dirección:</strong> Av. Separadora Industrial Mz. D Lt. 01 A.H. Los Jardines de Pachacámac — Villa El Salvador, Lima</li>
           </ul>
         </div>
-        <form class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm" onsubmit="alert('Gracias. Envía este formulario a tu correo con FormSubmit o Netlify Forms.'); return false;">
+        <form class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm" onsubmit="alert('Gracias. Para envíos reales gratis usa FormSubmit o Netlify Forms.'); return false;">
           <div class="grid grid-cols-1 gap-4">
             <input required type="text" placeholder="Nombre y empresa" class="w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-600" />
             <input required type="email" placeholder="Correo" class="w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-600" />
             <textarea required placeholder="Resumen del alcance (ambientes, metrado, fechas)" rows="4" class="w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
             <button class="rounded-xl bg-brand-600 px-4 py-2 text-white font-semibold hover:bg-brand-700" type="submit">Enviar</button>
-            <p class="text-xs text-slate-500">Nota: Para envío real 100% gratis, usa <a class="text-brand-700 hover:underline" href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a> (sin backend) o los formularios de Netlify.</p>
+            <p class="text-xs text-slate-500">Nota: Para envío real 100% gratis, usa <a class="text-brand-700 hover:underline" href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a> o Netlify Forms.</p>
           </div>
         </form>
       </div>
@@ -179,12 +217,31 @@
   <footer class="border-t border-slate-100">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-500 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <p>© <span id="year"></span> OKHIPU E.I.R.L. — Presentación corporativa</p>
-      <p class="opacity-80">Plantilla libre para publicación en Google Sites, GitHub Pages o Netlify.</p>
+      <p class="opacity-80">Plantilla libre para publicación en GitHub Pages, Netlify o Google Sites.</p>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Aviso si Tailwind no está presente
+    window.addEventListener('load', () => {
+      const test = document.createElement('div');
+      test.className = 'hidden';
+      document.body.appendChild(test);
+      const computed = window.getComputedStyle(test);
+      // Si la clase 'hidden' no oculta, probablemente Tailwind no cargó
+      if (computed.display !== 'none') {
+        const warn = document.createElement('div');
+        warn.textContent = 'Aviso: Tailwind no cargó. Se aplica estilo mínimo de respaldo.';
+        warn.style.background = '#fef3c7';
+        warn.style.color = '#92400e';
+        warn.style.padding = '10px';
+        warn.style.textAlign = 'center';
+        warn.style.borderBottom = '1px solid #f59e0b';
+        document.body.prepend(warn);
+      }
+      document.body.removeChild(test);
+    });
   </script>
 </body>
 </html>
